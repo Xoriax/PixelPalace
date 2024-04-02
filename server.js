@@ -26,12 +26,11 @@ const jeuxSchema = new mongoose.Schema({
     description: String,
 });
 
-const Jeux = mongoose.model('jeux', jeuxSchema);
+const Jeux = mongoose.model('games', jeuxSchema);
 
 app.get('/game', async (req, res) => {
     try {
         const games = await Jeux.find();
-        console.log(games)
         res.json(games);
     } catch (err) {
         console.error(err);
@@ -49,7 +48,7 @@ app.get('/game/:type', async (req, res) => {
     }
 });
 
-app.get('/game/:studio', async (req, res) => {
+app.get('/game/studio/:studio', async (req, res) => {
     try {
         const items = await Jeux.find({ studio: req.params.studio });
         res.json(items);
