@@ -18,7 +18,6 @@ const jeuxSchema = new mongoose.Schema({
     nom: String,
     image: String,
     prix: String,
-    category: String,
     type: String,
     trailer: String,
     studio: String,
@@ -50,6 +49,46 @@ app.get('/game/:type', async (req, res) => {
 app.get('/game/studio/:studio', async (req, res) => {
     try {
         const items = await Jeux.find({ studio: req.params.studio });
+        res.json(items);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server Error');
+    }
+});
+
+const pderiveSchemas = new mongoose.Schema({
+    nom: String,
+    image: String,
+    prix: String,
+    category: String,
+    license: String,
+});
+
+const Pderive = mongoose.model('p-derive', pderiveSchemas);
+
+app.get('/pderive', async (req, res) => {
+    try {
+        const games = await Pderive.find();
+        res.json(Pderive);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server Error');
+    }
+});
+
+app.get('/pderive/:category', async (req, res) => {
+    try {
+        const items = await Pderive.find({ category: req.params.category });
+        res.json(items);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server Error');
+    }
+});
+
+app.get('/pderive/license/:license', async (req, res) => {
+    try {
+        const items = await Pderive.find({ license: req.params.license });
         res.json(items);
     } catch (err) {
         console.error(err);
