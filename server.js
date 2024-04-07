@@ -56,7 +56,7 @@ app.get('/game/studio/:studio', async (req, res) => {
     }
 });
 
-const pderiveSchemas = new mongoose.Schema({
+const produitderiveSchemas = new mongoose.Schema({
     nom: String,
     image: String,
     prix: String,
@@ -64,12 +64,12 @@ const pderiveSchemas = new mongoose.Schema({
     license: String,
 });
 
-const Pderive = mongoose.model('p-derive', pderiveSchemas);
+const Produit = mongoose.model('pderives', produitderiveSchemas);
 
 app.get('/pderive', async (req, res) => {
     try {
-        const games = await Pderive.find();
-        res.json(Pderive);
+        const PDS = await Produit.find();
+        res.json(PDS);
     } catch (err) {
         console.error(err);
         res.status(500).send('Server Error');
@@ -78,7 +78,7 @@ app.get('/pderive', async (req, res) => {
 
 app.get('/pderive/:category', async (req, res) => {
     try {
-        const items = await Pderive.find({ category: req.params.category });
+        const items = await Produit.find({ category: req.params.category });
         res.json(items);
     } catch (err) {
         console.error(err);
@@ -88,7 +88,7 @@ app.get('/pderive/:category', async (req, res) => {
 
 app.get('/pderive/license/:license', async (req, res) => {
     try {
-        const items = await Pderive.find({ license: req.params.license });
+        const items = await Produit.find({ license: req.params.license });
         res.json(items);
     } catch (err) {
         console.error(err);
