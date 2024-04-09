@@ -28,8 +28,8 @@ const Jeux = mongoose.model('games', jeuxSchema);
 
 app.get('/game', async (req, res) => {
     try {
-        const games = await Jeux.find();
-        res.json(games);
+        const items = await Jeux.find();
+        res.json(items);
     } catch (err) {
         console.error(err);
         res.status(500).send('Server Error');
@@ -68,8 +68,8 @@ const Produit = mongoose.model('pderives', produitderiveSchemas);
 
 app.get('/pderive', async (req, res) => {
     try {
-        const PDS = await Produit.find();
-        res.json(PDS);
+        const items = await Produit.find();
+        res.json(items);
     } catch (err) {
         console.error(err);
         res.status(500).send('Server Error');
