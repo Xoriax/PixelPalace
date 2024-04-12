@@ -36,6 +36,19 @@ app.get('/game', async (req, res) => {
     }
 });
 
+app.get('/game/:id', async (req, res) => {
+    try {
+        const item = await Jeux.findById(req.params.id);
+        if (!item) {
+            return res.status(404).send('Game not found');
+        }
+        res.json(item);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server Error');
+    }
+});
+
 app.get('/game/:type', async (req, res) => {
     try {
         const items = await Jeux.find({ type: req.params.type });
@@ -70,6 +83,19 @@ app.get('/pderive', async (req, res) => {
     try {
         const items = await Produit.find();
         res.json(items);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server Error');
+    }
+});
+
+app.get('/pderive/:id', async (req, res) => {
+    try {
+        const item = await Produit.findById(req.params.id);
+        if (!item) {
+            return res.status(404).send('Product not found');
+        }
+        res.json(item);
     } catch (err) {
         console.error(err);
         res.status(500).send('Server Error');
