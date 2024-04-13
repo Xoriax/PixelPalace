@@ -6,9 +6,11 @@
     import HOME from "./Home.svelte";
     import SIGNIN from "./Signin.svelte";
     import SIGNUP from "./Signup.svelte";
+    import FOOTER from "./Footer.svelte";
 
 </script>
 
+<HEADER/>
 <Router>
     <Route path="/">
         <HOME/>
@@ -19,3 +21,4 @@
     <Route path="/SIGNIN" component={SIGNIN} />
     <Route path="/SIGNUP" component={SIGNUP} />
 </Router>
+<FOOTER/>
