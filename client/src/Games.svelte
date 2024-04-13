@@ -7,9 +7,7 @@
     let hoveredIndex = null;
 
     onMount(async () => {
-        const response = await fetch(
-            "http://localhost:3000/game",
-        );
+        const response = await fetch("http://localhost:3000/game");
         if (response.ok) {
             articles = await response.json();
         }

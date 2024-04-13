@@ -8,7 +8,6 @@
     import SIGNUP from "./Signup.svelte";
 </script>
 
-<HEADER/>
 <Router>
     <Route path="/">
         <HOME/>
