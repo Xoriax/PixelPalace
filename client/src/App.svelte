@@ -6,6 +6,7 @@
     import HOME from "./Home.svelte";
     import SIGNIN from "./Signin.svelte";
     import SIGNUP from "./Signup.svelte";
+
 </script>
 
 <Router>
