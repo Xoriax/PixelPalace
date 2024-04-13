@@ -5,7 +5,7 @@
         navigate("/GAMES");
     }
     function goToHome() {
-        navigate("/")
+        navigate("/");
     }
     function goToGOODIES() {
         navigate("/GOODIES");
@@ -13,20 +13,20 @@
     function goToSIGNIN() {
         navigate("/SIGNIN");
     }
-    function goToSIGNUP() {
-        navigate("/SIGNUP");
-    }
 </script>
 
 <header id="header">
     <button class="nav-link" on:click={goToHome}>
-        <img id="header-img" src="https://i.ibb.co/343ngYR/Design-sans-titre.png" alt="Design-sans-titre" />
+        <img
+            id="header-img"
+            src="https://i.ibb.co/343ngYR/Design-sans-titre.png"
+            alt="Design-sans-titre"
+        />
     </button>
     <nav id="nav-bar">
         <button class="nav-link" on:click={goToGAMES}>GAMES</button>
         <button class="nav-link" on:click={goToGOODIES}>GOODIES</button>
-        <button class="nav-link" on:click={goToSIGNUP}>SIGNUP</button>
-        <button class="nav-link" on:click={goToSIGNIN}>SIGNIN</button>
+        <button class="nav-link" on:click={goToSIGNIN}>CONNEXION</button>
     </nav>
 </header>
 

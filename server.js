@@ -5,10 +5,18 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const { port, mongoURI } = require('./config');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(morgan('tiny'));
+app.use(session({
+    secret: 'votre_secret',
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({ mongoUrl: mongoURI })
+}));
 
 mongoose.connect(mongoURI)
     .then(() => console.log('MongoDB database is connected'))

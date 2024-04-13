@@ -47,33 +47,32 @@
         display: flex;
         margin-bottom: 20px;
         align-items: center;
-        width: 80%; /* Define a reasonable container width */
-        margin: 0 auto; /* Center the container horizontally */
+        width: 80%;
+        margin: 0 auto;
     }
 
     .game-image {
-        width: 40%; /* Adjust image width for better layout */
+        width: 40%;
         border-radius: 8px;
         margin-right: 20px;
     }
 
-    /* Game details section */
     .game-details {
-        flex: 1; /* Allow details to fill remaining space */
+        flex: 1;
     }
 
     h2 {
-        margin: 0; /* Remove default margin for tighter spacing */
+        margin: 0;
     }
 
     .game-category,
     .game-license {
-        margin-top: 5px; /* Add spacing between details */
-        font-weight: bold; /* Emphasize category and license */
+        margin-top: 5px;
+        font-weight: bold;
     }
     .price {
         font-weight: bold;
-        margin-top: 20px; /* Add vertical spacing after info */
-        text-align: center; /* Center price information */
+        margin-top: 20px;
+        text-align: center;
     }
 </style>

@@ -25,7 +25,6 @@
         alt="all collection"
     />
     <h1 id="collection-title">Toute la collection</h1>
-    <button class="shop-now-btn" on:click={goToALLARTICLES}>SHOP STYLES</button>
 </div>
 
 <h2 class="section-title">LE VESTIAIRE UNIFLOP</h2>
@@ -37,7 +36,6 @@
             src=" https://image.uniqlo.com/UQ/ST3/eu/imagesother/2024/homepage/february/240226/l2-m-featcats-tshirts-465494.jpg"
             alt="Bannière pour femmes"
         />
-        <button class="shop-now-btn" on:click={goToTSHIRT}>SHOP STYLES</button>
     </div>
 
     <div class="card-container">
@@ -47,7 +45,6 @@
             src="https://image.uniqlo.com/UQ/ST3/eu/imagesother/2024/homepage/february/240226/l2-m-featcats-sweats-465200.jpg"
             alt="Bannière pour hommes"
         />
-        <button class="shop-now-btn" on:click={goToSWEATS}>SHOP STYLES</button>
     </div>
 
     <div class="card-container">
@@ -57,7 +54,6 @@
             src="https://image.uniqlo.com/UQ/ST3/eu/imagesother/2024/homepage/february/240226/l2-m-featcats-trousers-463918.jpg"
             alt="Bannière pour enfants"
         />
-        <button class="shop-now-btn" on:click={goToPANTALONS}>SHOP STYLES</button>
     </div>
 
     <div class="card-container">
@@ -67,7 +63,6 @@
             src="https://image.uniqlo.com/UQ/ST3/eu/imagesother/2023/homepage/september/230918/l2-m-featcats-underwear-461488.jpg"
             alt="Bannière pour bébés"
         />
-        <button class="shop-now-btn" on:click={goToSOUSVETEMENTS}>SHOP STYLES</button>
     </div>
 </div>
 
@@ -106,26 +101,6 @@
     #banner-image {
         width: 100%;
     }
-
-    .shop-now-btn {
-        position: absolute;
-        transition: 0.2s;
-        bottom: 10%;
-        left: 5%;
-        padding: 10px;
-        color: white;
-        border-radius: 0;
-        background: #fc0d1b;
-        font-weight: bold;
-        border: solid white 2px;
-    }
-
-    .shop-now-btn:hover {
-        color: black;
-        background: white;
-        border: solid #fc0d1b 2px;
-    }
-
     .section-title {
         text-align: center;
         margin-bottom: 20px;
