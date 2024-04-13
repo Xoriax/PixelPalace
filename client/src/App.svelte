@@ -20,5 +20,6 @@
     <Route path="/GOODIES" component={GOODIES} />
     <Route path="/SIGNIN" component={SIGNIN} />
     <Route path="/SIGNUP" component={SIGNUP} />
+    
 </Router>
 <FOOTER/>

@@ -19,26 +19,6 @@
         hoveredIndex = index;
     }
 
-    async function addToCart(articleId) {
-        try {
-            const response = await fetch(
-                `http://localhost:3000/add-to-cart/${articleId}`,
-                {
-                    method: "POST",
-                },
-            );
-            if (response.ok) {
-                console.log("Article ajouté au panier");
-            } else {
-                console.error("Erreur lors de l'ajout de l'article au panier");
-            }
-        } catch (error) {
-            console.error(
-                "Erreur lors de la communication avec le serveur",
-                error,
-            );
-        }
-    }
 </script>
 
 <h1 class="section-title">Tout Nos Jeux</h1>
@@ -52,7 +32,6 @@
                     <button
                         class="shop-now-btn"
                         on:mouseleave={() => toggleHovered(null)}
-                        on:click={() => addToCart(article._id)}
                         >Au Panier</button
                     >
                 {:else}
