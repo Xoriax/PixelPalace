@@ -34,20 +34,30 @@
 {/if}
 
 <style>
-    .trailer,
-    .price {
-        width: 100%;
+    .trailer {
+        margin-bottom: 20px;
+    }
+
+    .trailer iframe {
+        border: none;
     }
 
     .game-info {
         display: flex;
+        margin-bottom: 20px;
     }
 
     .game-image {
         width: 50%;
+        border-radius: 8px;
+        margin-right: 20px;
     }
 
     .game-description {
         width: 50%;
+    }
+
+    .price {
+        font-weight: bold;
     }
 </style>
