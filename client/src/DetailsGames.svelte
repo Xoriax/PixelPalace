@@ -1,22 +1,38 @@
 <script>
     import { onMount } from "svelte";
-    let game = null;
+
+    let articles = {};
+
+    const fetchData = async (articleId) => {
+        try {
+            const response = await fetch(
+                `http://localhost:3000/game/${articleId}`,
+            );
+            if (response.ok) {
+                articles = await response.json();
+            }
+        } catch (error) {
+            console.error(
+                "Erreur lors de la récupération des détails du jeu:",
+                error,
+            );
+        }
+    };
 
     onMount(async () => {
-        const response = await fetch("http://localhost:3000/game");
-        if (response.ok) {
-            const games = await response.json();
-            game = games[0];
-        }
+        const articleId = new URL(window.location.href).pathname
+            .split("/")
+            .pop();
+        await fetchData(articleId);
     });
 </script>
 
-{#if game}
+{#if articles}
     <div class="trailer">
         <iframe
             width="100%"
             height="500"
-            src={game.trailer}
+            src={articles.trailer}
             frameborder="0"
             allowfullscreen
             title="Game Trailer"
@@ -24,12 +40,13 @@
     </div>
 
     <div class="game-info">
-        <img src={game.image} alt={game.nom} class="game-image" />
-        <p class="game-description">{game.description}</p>
+        <img src={articles.image} alt={articles.nom} class="game-image" />
+        <h2>{articles.nom}</h2>
+        <p class="game-description">{articles.description}</p>
     </div>
 
     <div class="price">
-        Prix: {game.prix}
+        Prix: {articles.prix} €
     </div>
 {/if}
 
@@ -45,6 +62,7 @@
     .game-info {
         display: flex;
         margin-bottom: 20px;
+        align-items: center;
     }
 
     .game-image {

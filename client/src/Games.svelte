@@ -1,15 +1,13 @@
 <script>
     import { onMount } from "svelte";
-    import { createEventDispatcher } from "svelte";
+    import { navigate } from "svelte-routing";
+
 
     let articles = [];
-    const dispatch = createEventDispatcher();
     let hoveredIndex = null;
 
     onMount(async () => {
-        const response = await fetch(
-            "http://localhost:3000/game",
-        );
+        const response = await fetch("http://localhost:3000/game");
         if (response.ok) {
             articles = await response.json();
         }
@@ -19,6 +17,9 @@
         hoveredIndex = index;
     }
 
+    function navigateToDetails(articleId) {
+        navigate(`/DETAILS/${articleId}`);
+    }
 </script>
 
 <h1 class="section-title">Tout Nos Jeux</h1>
@@ -27,12 +28,12 @@
         <div class="card-container">
             <h2 class="product-header">{article.nom}</h2>
             <div class="image-container">
-                <img id="banner-image" src={article.image} alt={article.name} />
+                <img id="banner-image" src={article.image} alt={article.nom} />
                 {#if hoveredIndex === index}
                     <button
                         class="shop-now-btn"
-                        on:mouseleave={() => toggleHovered(null)}
-                        >Au Panier</button
+                        on:click={() => navigateToDetails(article._id)}
+                        >Details</button
                     >
                 {:else}
                     <button

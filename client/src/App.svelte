@@ -7,19 +7,20 @@
     import SIGNIN from "./Signin.svelte";
     import SIGNUP from "./Signup.svelte";
     import FOOTER from "./Footer.svelte";
-
+    import DETAILSGAMES from "./DetailsGames.svelte";
+    import DETAILSGOODIES from "./DetailsGoodies.svelte";
 </script>
 
-<HEADER/>
+<HEADER />
 <Router>
     <Route path="/">
-        <HOME/>
+        <HOME />
     </Route>
-    
     <Route path="/GAMES" component={GAMES} />
     <Route path="/GOODIES" component={GOODIES} />
     <Route path="/SIGNIN" component={SIGNIN} />
     <Route path="/SIGNUP" component={SIGNUP} />
-    
+    <Route path="/DETAILS/:articleId" component={DETAILSGAMES} />
+    <Route path="/DETAILSGOODIES/:articleId" component={DETAILSGOODIES} />
 </Router>
-<FOOTER/>
+<FOOTER />

@@ -1,13 +1,12 @@
 <script>
-    import { onMount } from 'svelte';
-    
+    import { onMount } from "svelte";
+    import { navigate } from "svelte-routing";
+
     let articles = [];
     let hoveredIndex = null;
 
     onMount(async () => {
-        const response = await fetch(
-            "http://localhost:3000/pderive",
-        );
+        const response = await fetch("http://localhost:3000/pderive");
         if (response.ok) {
             articles = await response.json();
         }
@@ -17,41 +16,23 @@
         hoveredIndex = index;
     }
 
-    async function addToCart(articleId) {
-        try {
-            const response = await fetch(
-                `http://localhost:3000/add-to-cart/${articleId}`,
-                {
-                    method: "POST",
-                },
-            );
-            if (response.ok) {
-                console.log("Article ajouté au panier");
-            } else {
-                console.error("Erreur lors de l'ajout de l'article au panier");
-            }
-        } catch (error) {
-            console.error(
-                "Erreur lors de la communication avec le serveur",
-                error,
-            );
-        }
+    function navigateToDetails(articleId) {
+        navigate(`/DETAILSGOODIES/${articleId}`);
     }
 </script>
 
-<h1 class="section-title">Tout Nos Jeux</h1>
+<h1 class="section-title">Decouvrez nos goodies !</h1>
 <div id="main-container">
     {#each articles as article, index}
         <div class="card-container">
             <h2 class="product-header">{article.nom}</h2>
             <div class="image-container">
-                <img id="banner-image" src={article.image} alt={article.name} />
+                <img id="banner-image" src={article.image} alt={article.nom} />
                 {#if hoveredIndex === index}
                     <button
                         class="shop-now-btn"
-                        on:mouseleave={() => toggleHovered(null)}
-                        on:click={() => addToCart(article._id)}
-                        >Au Panier</button
+                        on:click={() => navigateToDetails(article._id)}
+                        >Details</button
                     >
                 {:else}
                     <button
