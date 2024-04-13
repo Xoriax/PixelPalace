@@ -1,9 +1,7 @@
 <script>
-    import { onMount } from "svelte";
-    import { createEventDispatcher } from "svelte";
-
+    import { onMount } from 'svelte';
+    
     let articles = [];
-    const dispatch = createEventDispatcher();
     let hoveredIndex = null;
 
     onMount(async () => {
