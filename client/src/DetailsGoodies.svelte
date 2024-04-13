@@ -1,45 +1,43 @@
 <script>
-    import { onMount } from 'svelte';
-    let game = null;
+    import { onMount } from "svelte";
+    let pproduct = null;
 
     onMount(async () => {
-        const response = await fetch("http://localhost:3000/game");
+        const response = await fetch("http://localhost:3000/pderive");
         if (response.ok) {
-            const games = await response.json();
-            game = games[0]; // suppose que nous voulons afficher le premier jeu
+            const pproducts = await response.json();
+            pproduct = pproducts[0];
         }
     });
 </script>
 
-{#if game}
-<div class="trailer">
-    <iframe width="100%" height="500" src={game.trailer} frameborder="0" allowfullscreen title="Game Trailer"></iframe>
-</div>
-
-<div class="game-info">
-    <img src={game.image} alt={game.nom} class="game-image"/>
-    <p class="game-description">{game.description}</p>
-</div>
-
-<div class="price">
-   Prix: {game.prix}
-</div>
+{#if pproduct}
+    <div class="pproduct-info">
+        <img src={pproduct.image} alt={pproduct.nom} class="pproduct-image" />
+        <p class="name">{pproduct.nom}</p>
+        <p class="price">Prix: {pproduct.prix}</p>
+        <p class="pproduct-license">{pproduct.license}</p>
+        <p class="pproduct-category">{pproduct.category}</p>
+    </div>
 {/if}
 
 <style>
-.trailer, .price {
-  width: 100%;
-}
+    .pproduct-info {
+        display: flex;
+        margin-bottom: 20px;
+    }
 
-.game-info {
-  display: flex;
-}
+    .pproduct-image {
+        width: 50%;
+        border-radius: 8px;
+        margin-right: 20px;
+    }
 
-.game-image {
-  width: 50%;
-}
+    .pproduct-license, .pproduct-category {
+        width: 50%;
+    }
 
-.game-description {
-  width: 50%;
-}
+    .price {
+        font-weight: bold;
+    }
 </style>
