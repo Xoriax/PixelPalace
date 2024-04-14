@@ -1,20 +1,17 @@
 <script>
     import { navigate } from "svelte-routing";
 
-    function goToALLARTICLES() {
-        navigate("/ALLARTICLES");
+    function goToACTION() {
+        navigate("/ACTION");
     }
-    function goToTSHIRT() {
-        navigate("/T-SHIRT");
+    function goToADVENTURE() {
+        navigate("/ADVENTURE");
     }
-    function goToSWEATS() {
-        navigate("/SWEATS");
+    function goToFIGURINE() {
+        navigate("/FIGURINE");
     }
-    function goToPANTALONS() {
-        navigate("/PANTALONS");
-    }
-    function goToSOUSVETEMENTS() {
-        navigate("/SOUS-VETEMENTS");
+    function goToGOW() {
+        navigate("/GOW");
     }
 </script>
 
@@ -27,42 +24,46 @@
     <h1 id="collection-title">Toute la collection</h1>
 </div>
 
-<h2 class="section-title">LE VESTIAIRE UNIFLOP</h2>
+<h2 class="section-title">D'autres envies ?P</h2>
 <div id="main-container">
     <div class="card-container">
-        <h2 id="T-SHIRTS" class="product-header">T-SHIRTS</h2>
+        <h2 id="ACTION" class="product-header">ACTION</h2>
         <img
             id="banner-image"
             src=" https://image.uniqlo.com/UQ/ST3/eu/imagesother/2024/homepage/february/240226/l2-m-featcats-tshirts-465494.jpg"
             alt="Bannière pour femmes"
         />
+        <button class="shop-now-btn" on:click={goToACTION}>SHOP</button>
     </div>
 
     <div class="card-container">
-        <h2 id="SWEATS" class="product-header">SWEATS</h2>
+        <h2 id="AVENTURE" class="product-header">AVENTURE</h2>
         <img
             id="banner-image"
             src="https://image.uniqlo.com/UQ/ST3/eu/imagesother/2024/homepage/february/240226/l2-m-featcats-sweats-465200.jpg"
             alt="Bannière pour hommes"
         />
+        <button class="shop-now-btn" on:click={goToADVENTURE}>SHOP</button>
     </div>
 
     <div class="card-container">
-        <h2 id="PANTALONS" class="product-header">PANTALONS</h2>
+        <h2 id="FIGURINES" class="product-header">FIGURINES</h2>
         <img
             id="banner-image"
             src="https://image.uniqlo.com/UQ/ST3/eu/imagesother/2024/homepage/february/240226/l2-m-featcats-trousers-463918.jpg"
             alt="Bannière pour enfants"
         />
+        <button class="shop-now-btn" on:click={goToFIGURINE}>SHOP</button>
     </div>
 
     <div class="card-container">
-        <h2 id="SOUS-VÊTEMENTS" class="product-header">SOUS-VÊTEMENTS</h2>
+        <h2 id="GOW" class="product-header">God Of War</h2>
         <img
             id="banner-image"
             src="https://image.uniqlo.com/UQ/ST3/eu/imagesother/2023/homepage/september/230918/l2-m-featcats-underwear-461488.jpg"
             alt="Bannière pour bébés"
         />
+        <button class="shop-now-btn" on:click={goToGOW}>SHOP</button>
     </div>
 </div>
 
@@ -100,6 +101,25 @@
 
     #banner-image {
         width: 100%;
+    }
+
+    .shop-now-btn {
+        position: absolute;
+        transition: 0.2s;
+        bottom: 10%;
+        left: 5%;
+        padding: 10px;
+        color: white;
+        border-radius: 0;
+        background: #fc0d1b;
+        font-weight: bold;
+        border: solid white 2px;
+    }
+
+    .shop-now-btn:hover {
+        color: black;
+        background: white;
+        border: solid #fc0d1b 2px;
     }
     .section-title {
         text-align: center;

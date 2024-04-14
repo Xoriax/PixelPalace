@@ -52,7 +52,7 @@ app.get('/game/:id', async (req, res) => {
     }
 });
 
-app.get('/game/:type', async (req, res) => {
+app.get('/game/type/:type', async (req, res) => {
     try {
         const items = await Jeux.find({ type: req.params.type });
         res.json(items);
@@ -105,7 +105,7 @@ app.get('/pderive/:id', async (req, res) => {
     }
 });
 
-app.get('/pderive/:category', async (req, res) => {
+app.get('/pderive/category/:category', async (req, res) => {
     try {
         const items = await Produit.find({ category: req.params.category });
         res.json(items);
