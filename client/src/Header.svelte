@@ -53,6 +53,7 @@
             <button class="nav-link" on:click={handleLogout}>DECONNEXION</button
             >
             <span>{username}</span>
+            <!-- Affiche le nom d'utilisateur -->
         {:else}
             <button class="nav-link" on:click={goToSIGNIN}>CONNEXION</button>
         {/if}

@@ -125,9 +125,13 @@ app.get('/pderive/license/:license', async (req, res) => {
     }
 });
 
-// User Schema and Model
 const userSchema = new mongoose.Schema({
     username: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    email: {
         type: String,
         required: true,
         unique: true
@@ -140,20 +144,19 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('users', userSchema);
 
-// Routes for User Management
 app.post("/signup", async (req, res) => {
     try {
-        const { username, password } = req.body;
+        const { username, email, password } = req.body;
 
-        const existingUser = await User.findOne({ username });
+        const existingUser = await User.findOne({ $or: [{ username }, { email }] });
         if (existingUser) {
-            return res.status(400).send('Username already exists. Please choose a different username.');
+            return res.status(400).send('Username or email already exists. Please choose a different username or email.');
         }
 
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-        const newUser = new User({ username, password: hashedPassword });
+        const newUser = new User({ username, email, password: hashedPassword });
         await newUser.save();
 
         res.status(201).send('User created successfully.');

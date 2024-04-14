@@ -40,6 +40,10 @@
             navigate("/"); // Redirection vers la page d'accueil si l'utilisateur est déjà connecté
         }
     });
+
+    function goToSIGNUP() {
+        navigate("/SIGNUP");
+    }
 </script>
 
 <h1>Sign In</h1>
@@ -57,6 +61,10 @@
 
     <button type="submit">Login</button>
 </form>
+
+<button class="nav-link" on:click={goToSIGNUP}
+    >VOUS N'AVEZ PAS DE COMPTE ?</button
+>
 
 <style>
 </style>
