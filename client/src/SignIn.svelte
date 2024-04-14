@@ -1,37 +1,61 @@
 <script>
-    let username = '';
-    let password = '';
+    import { onMount } from "svelte";
+    import { navigate } from "svelte-routing";
+
+    let username = "";
+    let password = "";
+    let error = null;
 
     async function handleLogin() {
         try {
-            const response = await fetch('http://localhost:3000/login', {
-                method: 'POST',
+            const response = await fetch("http://localhost:3000/login", {
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json'
+                    "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ username, password })
+                body: JSON.stringify({ username, password }),
             });
 
             if (response.ok) {
-                console.log("Login successful"); // Affichez un message de confirmation dans la console
+                localStorage.setItem("username", username); // Stockage du nom d'utilisateur dans le stockage local
+                console.log("Login successful");
+                navigate("/"); // Redirection vers la page d'accueil après la connexion réussie
             } else {
-                const errorMessage = await response.text();
-                console.error(errorMessage); // Affichez l'erreur dans la console en cas d'échec de connexion
+                const errorMessage = await response.text(); // Récupération du message d'erreur de la réponse
+                setError(errorMessage); // Définition du message d'erreur à afficher
             }
         } catch (error) {
-            console.error('Error:', error); // Gérez les erreurs de requête
+            console.error("Error:", error);
+            setError("An unexpected error occurred. Please try again later.");
         }
     }
+
+    function setError(message) {
+        error = message;
+    }
+
+    onMount(() => {
+        if (localStorage.getItem("username")) {
+            navigate("/"); // Redirection vers la page d'accueil si l'utilisateur est déjà connecté
+        }
+    });
 </script>
 
 <h1>Sign In</h1>
 
+{#if error}
+    <p style="color: red;">{error}</p>
+{/if}
+
 <form on:submit|preventDefault={handleLogin}>
     <label for="username">Username:</label>
-    <input type="text" id="username" bind:value={username} required>
+    <input type="text" id="username" bind:value={username} required />
 
     <label for="password">Password:</label>
-    <input type="password" id="password" bind:value={password} required>
+    <input type="password" id="password" bind:value={password} required />
 
     <button type="submit">Login</button>
 </form>
+
+<style>
+</style>

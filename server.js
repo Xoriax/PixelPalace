@@ -125,6 +125,7 @@ app.get('/pderive/license/:license', async (req, res) => {
     }
 });
 
+// User Schema and Model
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -139,6 +140,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('users', userSchema);
 
+// Routes for User Management
 app.post("/signup", async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -167,14 +169,18 @@ app.post("/login", async (req, res) => {
 
         const user = await User.findOne({ username });
         if (!user) {
+            console.log("User not found");
             return res.status(401).send("User not found");
         }
 
         const isPasswordMatch = await bcrypt.compare(password, user.password);
         if (!isPasswordMatch) {
+            console.log("Incorrect password");
             return res.status(401).send("Incorrect password");
         }
 
+        console.log("Login successful");
+        console.log("User connected:", user.username);
         res.status(200).send("Login successful");
     } catch (err) {
         console.error(err.message);

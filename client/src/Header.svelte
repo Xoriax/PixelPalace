@@ -1,5 +1,10 @@
 <script>
+    import { onMount } from "svelte";
     import { navigate } from "svelte-routing";
+
+    let loggedIn = false;
+    let username = "";
+    let refreshed = false;
 
     function goToGAMES() {
         navigate("/GAMES");
@@ -16,6 +21,21 @@
     function goToSIGNIN() {
         navigate("/SIGNIN");
     }
+
+    function handleLogout() {
+        localStorage.removeItem("username");
+        loggedIn = false;
+        username = "";
+        navigate("/SIGNIN");
+    }
+
+    onMount(() => {
+        const storedUsername = localStorage.getItem("username");
+        if (storedUsername) {
+            loggedIn = true;
+            username = storedUsername;
+        }
+    });
 </script>
 
 <header id="header">
@@ -29,7 +49,13 @@
     <nav id="nav-bar">
         <button class="nav-link" on:click={goToGAMES}>GAMES</button>
         <button class="nav-link" on:click={goToGOODIES}>GOODIES</button>
-        <button class="nav-link" on:click={goToSIGNIN}>CONNEXION</button>
+        {#if loggedIn}
+            <button class="nav-link" on:click={handleLogout}>DECONNEXION</button
+            >
+            <span>{username}</span>
+        {:else}
+            <button class="nav-link" on:click={goToSIGNIN}>CONNEXION</button>
+        {/if}
     </nav>
 </header>
 
@@ -55,6 +81,7 @@
 
     #nav-bar {
         display: flex;
+        align-items: center;
     }
 
     .nav-link {
