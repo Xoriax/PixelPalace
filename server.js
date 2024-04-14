@@ -154,4 +154,23 @@ app.post('/signup', async (req, res) => {
     }
 });
 
+app.post('/signin', async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(400).json({ message: 'Utilisateur introuvable' });
+        }
+
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) {
+            return res.status(400).json({ message: 'Mot de passe incorrect' });
+        }
+        res.status(201).json({ message: 'Connexion réussie !' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Erreur lors de la connexion' });
+    }
+});
+
 app.listen(port, () => console.log('Express is running at port ' + port));
