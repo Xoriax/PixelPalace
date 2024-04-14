@@ -1,9 +1,8 @@
 <script>
     import { navigate } from "svelte-routing";
 
-    function goToSIGNUP() {
-        navigate("/SIGNUP");
-    }
+    import { writable } from "svelte/store";
+    export const user = writable(null);
 
     let email = "";
     let password = "";
@@ -28,11 +27,16 @@
                 throw new Error(data.message);
             }
 
-            console.log(data);
-            // Rediriger l'utilisateur vers une autre page après la connexion réussie si nécessaire
+            user.set(data.user);
+
+            navigate("/"); // Redirige vers la page d'accueil
         } catch (error) {
             erreur = error.message;
         }
+    }
+
+    function goToSIGNUP() {
+        navigate("/SIGNUP");
     }
 </script>
 
@@ -59,6 +63,3 @@
 <button class="nav-link" on:click={goToSIGNUP}
     >VOUS N'AVEZ PAS DE COMPTE ?</button
 >
-
-<style>
-</style>

@@ -1,15 +1,40 @@
 <script>
+    import { onMount } from "svelte";
     import { navigate } from "svelte-routing";
+
+    let isLoggedIn = false;
+    let userName = "";
+
+    async function checkSession() {
+        const response = await fetch("http://localhost:3000/checksession");
+        const data = await response.json();
+        isLoggedIn = data.isLoggedIn;
+        if (isLoggedIn) {
+            userName = data.user.nom;
+        }
+    }
+
+    async function logout() {
+        const response = await fetch("http://localhost:3000/logout");
+        if (response.ok) {
+            isLoggedIn = false;
+            userName = "";
+            navigate("/");
+        }
+    }
 
     function goToGAMES() {
         navigate("/GAMES");
     }
-    function goToHome() {
-        navigate("/");
-    }
+
     function goToGOODIES() {
         navigate("/GOODIES");
     }
+
+    function goToHome() {
+        navigate("/");
+    }
+
     function goToSIGNIN() {
         navigate("/SIGNIN");
     }
@@ -26,7 +51,12 @@
     <nav id="nav-bar">
         <button class="nav-link" on:click={goToGAMES}>GAMES</button>
         <button class="nav-link" on:click={goToGOODIES}>GOODIES</button>
-        <button class="nav-link" on:click={goToSIGNIN}>CONNEXION</button>
+        {#if isLoggedIn}
+            <button class="nav-link" on:click={logout}>DECONNEXION</button>
+            <span>Bonjour {userName}</span>
+        {:else}
+            <button class="nav-link" on:click={goToSIGNIN}>CONNEXION</button>
+        {/if}
     </nav>
 </header>
 

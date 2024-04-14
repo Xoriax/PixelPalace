@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const { port, mongoURI } = require('./config');
 const bcrypt = require('bcrypt');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -132,6 +134,13 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('users', userSchema);
 
+app.use(session({
+    secret: 'votre_secret',
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({ mongoUrl: mongoURI })
+}));
+
 app.post('/signup', async (req, res) => {
     const { nom, prenom, email, password } = req.body;
 
@@ -166,10 +175,43 @@ app.post('/signin', async (req, res) => {
         if (!isPasswordValid) {
             return res.status(400).json({ message: 'Mot de passe incorrect' });
         }
-        res.status(201).json({ message: 'Connexion réussie !' });
+
+        req.session.user = { _id: user._id, nom: user.nom, prenom: user.prenom, email: user.email };
+
+        res.status(200).json({ message: 'Connexion réussie', user: req.session.user });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Erreur lors de la connexion' });
+    }
+});
+
+app.get('/checksession', async (req, res) => {
+    try {
+        if (req.session.user) {
+            res.json({ isLoggedIn: true, user: req.session.user });
+        } else {
+            res.json({ isLoggedIn: false });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Erreur lors de la vérification de la session utilisateur' });
+    }
+});
+
+app.get('/logout', async (req, res) => {
+    try {
+        req.session.destroy((err) => {
+            if (err) {
+                console.error(err);
+                res.status(500).json({ message: 'Erreur lors de la déconnexion' });
+            } else {
+                res.clearCookie('connect.sid');
+                res.status(200).json({ message: 'Déconnexion réussie' });
+            }
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Erreur lors de la déconnexion' });
     }
 });
 
