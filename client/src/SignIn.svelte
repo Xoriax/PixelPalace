@@ -17,12 +17,13 @@
             });
 
             if (response.ok) {
-                localStorage.setItem("username", username); // Stockage du nom d'utilisateur dans le stockage local
+                localStorage.setItem("username", username);
                 console.log("Login successful");
-                navigate("/"); // Redirection vers la page d'accueil après la connexion réussie
+                navigate("/");
+                window.location.reload();
             } else {
-                const errorMessage = await response.text(); // Récupération du message d'erreur de la réponse
-                setError(errorMessage); // Définition du message d'erreur à afficher
+                const errorMessage = await response.text();
+                setError(errorMessage);
             }
         } catch (error) {
             console.error("Error:", error);
