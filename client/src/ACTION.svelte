@@ -76,9 +76,10 @@
 
     #banner-image {
         width: 100%;
+        height: 200px;
+        object-fit: cover;
         margin-bottom: 0%;
     }
-
     .section-title {
         text-align: center;
         margin-bottom: 20px;
