@@ -2,7 +2,6 @@
     import { onMount } from "svelte";
     import { navigate } from "svelte-routing";
 
-
     let articles = [];
     let hoveredIndex = null;
 
@@ -76,6 +75,8 @@
 
     #banner-image {
         width: 100%;
+        height: 200px;
+        object-fit: cover;
         margin-bottom: 0%;
     }
 
