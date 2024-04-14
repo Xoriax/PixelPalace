@@ -6,10 +6,10 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const { port, mongoURI } = require('./config');
 const bcrypt = require('bcrypt');
-const session = require('express-session');
-const MongoStore = require('connect-mongo');
+
 
 app.use(cors());
+app.use(express.json())
 app.use(bodyParser.json());
 app.use(morgan('tiny'));
 
@@ -126,92 +126,59 @@ app.get('/pderive/license/:license', async (req, res) => {
 });
 
 const userSchema = new mongoose.Schema({
-    nom: String,
-    prenom: String,
-    email: String,
-    password: String
+    username: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    }
 });
 
 const User = mongoose.model('users', userSchema);
 
-app.use(session({
-    secret: 'votre_secret',
-    resave: false,
-    saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: mongoURI })
-}));
-
-app.post('/signup', async (req, res) => {
-    const { nom, prenom, email, password } = req.body;
-
+app.post("/signup", async (req, res) => {
     try {
-        const existingUser = await User.findOne({ email });
+        const { username, password } = req.body;
 
+        const existingUser = await User.findOne({ username });
         if (existingUser) {
-            return res.status(400).json({ message: 'Cet email est déjà utilisé.' });
+            return res.status(400).send('Username already exists. Please choose a different username.');
         }
 
-        const hashedPassword = await bcrypt.hash(password, 10);
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-        const newUser = new User({ nom, prenom, email, password: hashedPassword });
+        const newUser = new User({ username, password: hashedPassword });
         await newUser.save();
 
-        res.status(201).json({ message: 'Inscription réussie !' });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Erreur serveur lors de l\'inscription.' });
+        res.status(201).send('User created successfully.');
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
     }
 });
 
-app.post('/signin', async (req, res) => {
-    const { email, password } = req.body;
+app.post("/login", async (req, res) => {
     try {
-        const user = await User.findOne({ email });
+        const { username, password } = req.body;
+
+        const user = await User.findOne({ username });
         if (!user) {
-            return res.status(400).json({ message: 'Utilisateur introuvable' });
+            return res.status(401).send("User not found");
         }
 
-        const isPasswordValid = await bcrypt.compare(password, user.password);
-        if (!isPasswordValid) {
-            return res.status(400).json({ message: 'Mot de passe incorrect' });
+        const isPasswordMatch = await bcrypt.compare(password, user.password);
+        if (!isPasswordMatch) {
+            return res.status(401).send("Incorrect password");
         }
 
-        req.session.user = { _id: user._id, nom: user.nom, prenom: user.prenom, email: user.email };
-
-        res.status(200).json({ message: 'Connexion réussie', user: req.session.user });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Erreur lors de la connexion' });
-    }
-});
-
-app.get('/checksession', async (req, res) => {
-    try {
-        if (req.session.user) {
-            res.json({ isLoggedIn: true, user: req.session.user });
-        } else {
-            res.json({ isLoggedIn: false });
-        }
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Erreur lors de la vérification de la session utilisateur' });
-    }
-});
-
-app.get('/logout', async (req, res) => {
-    try {
-        req.session.destroy((err) => {
-            if (err) {
-                console.error(err);
-                res.status(500).json({ message: 'Erreur lors de la déconnexion' });
-            } else {
-                res.clearCookie('connect.sid');
-                res.status(200).json({ message: 'Déconnexion réussie' });
-            }
-        });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Erreur lors de la déconnexion' });
+        res.status(200).send("Login successful");
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
     }
 });
 
