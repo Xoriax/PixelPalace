@@ -90,9 +90,6 @@
         transition: 0.3s;
         position: relative;
     }
-    .card-container  {
-        border-radius: 100%;
-    }
 
     .product-header {
         margin: auto;
@@ -102,10 +99,14 @@
         text-transform: uppercase;
         color: rgb(245, 233, 0);
         background-color: #3d3d3d;
+        border-top-left-radius: 20%;
+        border-top-right-radius: 20%; 
     }
 
     #banner-image {
         width: 100%;
+        border-bottom-left-radius: 10%;
+        border-bottom-right-radius: 10%; 
     }
 
     .shop-now-btn {
@@ -115,7 +116,7 @@
         left: 5%;
         padding: 10px;
         color: rgb(250, 217, 0);
-        border-radius: 0;
+        border-radius: 10%;
         background: #343434;
         font-weight: bold;
         border: solid rgb(54, 54, 54) 2px;
