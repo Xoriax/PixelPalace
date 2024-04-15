@@ -2,7 +2,6 @@
     import { onMount } from "svelte";
     import { navigate } from "svelte-routing";
 
-
     let articles = [];
     let hoveredIndex = null;
 

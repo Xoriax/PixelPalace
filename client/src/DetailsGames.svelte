@@ -46,7 +46,7 @@
     </div>
 
     <div class="price">
-        Prix: {articles.prix} €
+        Prix: {articles.prix}
     </div>
 {/if}
 

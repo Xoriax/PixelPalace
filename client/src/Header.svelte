@@ -52,8 +52,9 @@
         {#if loggedIn}
             <button class="nav-link" on:click={handleLogout}>DECONNEXION</button
             >
-            <span>{username}</span>
-            <!-- Affiche le nom d'utilisateur -->
+            <div class="sess">
+                <span id="session">{username}</span>
+            </div>
         {:else}
             <button class="nav-link" on:click={goToSIGNIN}>CONNEXION</button>
         {/if}
@@ -61,16 +62,29 @@
 </header>
 
 <style>
+    .sess {
+        display: flex;
+        justify-content: flex-end;
+        width: 1000px;
+    }
+    #session {
+        font-family: "Pixelify Sans", Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: aliceblue;
+        font-size: 1.5rem;
+    }
+
     #header {
         display: flex;
         align-items: center;
         width: 100%;
         height: 10vh;
-        background-color: white;
+        background-color: transparent;
         border-bottom: 1px solid black;
         position: sticky;
         top: 0px;
         z-index: 10;
+        background: rgba(0, 0, 0, 0.5);
     }
 
     #header-img {
@@ -78,18 +92,21 @@
         margin: 0px 10px 0px 10px;
         z-index: 1;
         cursor: pointer;
+        border-radius: 50%;
     }
 
     #nav-bar {
         display: flex;
         align-items: center;
+        justify-content: center;
     }
 
     .nav-link {
+        font-family: "Pixelify Sans", Arial, Helvetica, sans-serif;
         padding: 20px;
         text-decoration: none;
-        font-size: 1.2rem;
-        color: black;
+        font-size: 1.5rem;
+        color: rgb(255, 255, 255);
         transition: 0.2s;
         outline: none;
         border: none;
@@ -98,6 +115,6 @@
 
     .nav-link:hover {
         cursor: pointer;
-        color: #fc0d1b;
+        color: #ffb300;
     }
 </style>

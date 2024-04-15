@@ -2,12 +2,13 @@
     import { onMount } from "svelte";
     import { navigate } from "svelte-routing";
 
-
     let articles = [];
     let hoveredIndex = null;
 
     onMount(async () => {
-        const response = await fetch("http://localhost:3000/game/type/adventure");
+        const response = await fetch(
+            "http://localhost:3000/game/type/adventure",
+        );
         if (response.ok) {
             articles = await response.json();
         }
