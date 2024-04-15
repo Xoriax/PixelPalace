@@ -14,7 +14,8 @@
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "test": "cypress"
   },
   "dependencies": {
     "svelte-routing": "^2.12.0",
