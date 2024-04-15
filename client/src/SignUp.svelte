@@ -9,13 +9,11 @@
 
     async function handleSignup() {
         try {
-            // Vérifier si les mots de passe correspondent
             if (password !== confirmPassword) {
                 error = "Passwords do not match";
                 return;
             }
 
-            // Envoyer les données d'inscription au serveur
             const response = await fetch("http://localhost:3000/signup", {
                 method: "POST",
                 headers: {
@@ -25,7 +23,7 @@
             });
 
             if (response.ok) {
-                navigate("/"); // Rediriger vers la page d'accueil après l'inscription réussie
+                navigate("/"); 
             } else {
                 const errorMessage = await response.text();
                 setError(errorMessage);

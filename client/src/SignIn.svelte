@@ -37,7 +37,7 @@
 
     onMount(() => {
         if (localStorage.getItem("username")) {
-            navigate("/"); // Redirection vers la page d'accueil si l'utilisateur est déjà connecté
+            navigate("/");
         }
     });
 
