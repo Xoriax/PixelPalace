@@ -1,5 +1,9 @@
 # PixelPalace
 
+### Koussai Laribi
+### Johary Rakotonirina
+### Lucas Tear
+
 Pixel palace est un site d'information sur les jeux vidéo et de e-commerce.
 
 Sur ce site vous aurez la possibilité de créer un compte, de vous y connecter et de vous renseigner sur divers jeux vidéos et goodies avec une interface agréable à regarder.
