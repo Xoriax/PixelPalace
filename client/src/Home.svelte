@@ -15,60 +15,62 @@
     }
 </script>
 
-<div id="all-collection-box">
-    <img
-        id="banner-image"
-        src="https://i.ibb.co/ZGLL0tj/image-4.png"
-        alt="all collection"
-    />
-    <h1 id="collection-title">Toute la collection</h1>
-</div>
-
-<h2 class="section-title">D'autres envies ?</h2>
-<div id="main-container">
-    <div class="card-container">
-        <h2 id="ACTION" class="product-header">ACTION</h2>
-        <img
-            id="banner-image"
-            src="https://th.bing.com/th/id/OIG3._aZNJOJMVInCFjyM6t4k?pid=ImgGn"
-            alt="ACTION"
-        />
-        <button class="shop-now-btn" on:click={goToACTION}>SHOP</button>
+<div id="explore">
+    <div id="all-collection-box">
+        <h1 id="collection-title">PIXEL PALACE</h1>
     </div>
+    <h4 id="sub-title">A power of gamer will change the world</h4>
 
-    <div class="card-container">
-        <h2 id="AVENTURE" class="product-header">AVENTURE</h2>
-        <img
-            id="banner-image"
-            src="https://th.bing.com/th/id/OIG3.Wi9EjPmBczRxOOsa9VVM?pid=ImgGn"
-            alt="ADVENTURE"
-        />
-        <button class="shop-now-btn" on:click={goToADVENTURE}>SHOP</button>
-    </div>
+    <h2 class="section-title">D'autres envies ?</h2>
+    <div id="main-container">
+        <div class="card-container">
+            <h2 id="ACTION" class="product-header">ACTION</h2>
+            <img
+                id="banner-image"
+                src="https://th.bing.com/th/id/OIG3._aZNJOJMVInCFjyM6t4k?pid=ImgGn"
+                alt="ACTION"
+            />
+            <button class="shop-now-btn" on:click={goToACTION}>SHOP</button>
+        </div>
 
-    <div class="card-container">
-        <h2 id="FIGURINES" class="product-header">FIGURINES</h2>
-        <img
-            id="banner-image"
-            src="https://th.bing.com/th/id/OIG1.r6eVMY2BuD_1U75dCKmo?pid=ImgGn"
-            alt="FIGURINE"
-        />
-        <button class="shop-now-btn" on:click={goToFIGURINE}>SHOP</button>
-    </div>
+        <div class="card-container">
+            <h2 id="AVENTURE" class="product-header">AVENTURE</h2>
+            <img
+                id="banner-image"
+                src="https://th.bing.com/th/id/OIG3.Wi9EjPmBczRxOOsa9VVM?pid=ImgGn"
+                alt="ADVENTURE"
+            />
+            <button class="shop-now-btn" on:click={goToADVENTURE}>SHOP</button>
+        </div>
 
-    <div class="card-container">
-        <h2 id="GOW" class="product-header">God Of War</h2>
-        <img
-            id="banner-image"
-            src="https://th.bing.com/th/id/OIG1.HIWfTVsjp9Sxv3fFr2.O?pid=ImgGn"
-            alt="God Of War"
-        />
-        <button class="shop-now-btn" on:click={goToGOW}>SHOP</button>
+        <div class="card-container">
+            <h2 id="FIGURINES" class="product-header">FIGURINES</h2>
+            <img
+                id="banner-image"
+                src="https://th.bing.com/th/id/OIG1.r6eVMY2BuD_1U75dCKmo?pid=ImgGn"
+                alt="FIGURINE"
+            />
+            <button class="shop-now-btn" on:click={goToFIGURINE}>SHOP</button>
+        </div>
+
+        <div class="card-container">
+            <h2 id="GOW" class="product-header">God Of War</h2>
+            <img
+                id="banner-image"
+                src="https://th.bing.com/th/id/OIG1.HIWfTVsjp9Sxv3fFr2.O?pid=ImgGn"
+                alt="God Of War"
+            />
+            <button class="shop-now-btn" on:click={goToGOW}>SHOP</button>
+        </div>
     </div>
 </div>
 
 <style>
-    
+    #explore {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 0.5%;
+    }
+
     #main-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
@@ -78,8 +80,8 @@
         margin-bottom: 50px;
     }
 
-    *{
-        background-image: url("")
+    * {
+        background-image: url("");
     }
 
     .card-container {
@@ -95,8 +97,8 @@
         font-size: 2rem;
         text-align: center;
         text-transform: uppercase;
-        color: white;
-        background-color: #fc0d1b;
+        color: rgb(245, 233, 0);
+        background-color: #3d3d3d;
     }
 
     #banner-image {
@@ -109,22 +111,22 @@
         bottom: 10%;
         left: 5%;
         padding: 10px;
-        color: white;
+        color: rgb(250, 217, 0);
         border-radius: 0;
-        background: #fc0d1b;
+        background: #343434;
         font-weight: bold;
-        border: solid white 2px;
+        border: solid rgb(54, 54, 54) 2px;
     }
 
     .shop-now-btn:hover {
-        color: black;
-        background: white;
-        border: solid #fc0d1b 2px;
+        color: rgb(65, 65, 65);
+        background: rgb(255, 225, 0);
+        border: solid #4d4d4d 2px;
     }
     .section-title {
         text-align: center;
         margin-bottom: 20px;
-        color: #333;
+        color: #ffffff;
         font-size: 2rem;
         text-decoration: underline;
     }
@@ -142,7 +144,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 2;
-        color: black;
+        color: rgb(255, 255, 255);
         font-size: 3rem;
         text-align: center;
         text-transform: uppercase;
@@ -151,4 +153,18 @@
         letter-spacing: 0.1em;
     }
 
+    #sub-title {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        color: rgb(255, 255, 255);
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        color: rgb(255, 255, 255);
+    }
 </style>

@@ -66,11 +66,12 @@
         align-items: center;
         width: 100%;
         height: 10vh;
-        background-color: white;
+        background-color: transparent;
         border-bottom: 1px solid black;
         position: sticky;
         top: 0px;
         z-index: 10;
+        background: rgba(0, 0, 0, 0.5);
     }
 
     #header-img {
@@ -89,7 +90,7 @@
         padding: 20px;
         text-decoration: none;
         font-size: 1.2rem;
-        color: black;
+        color: rgb(255, 255, 255);
         transition: 0.2s;
         outline: none;
         border: none;
