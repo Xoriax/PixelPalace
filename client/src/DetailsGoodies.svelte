@@ -27,28 +27,41 @@
     });
 </script>
 
-{#if articles}
-    <div class="game-info">
-        <img src={articles.image} alt={articles.nom} class="game-image" />
-        <div class="game-details">
-            <h2>{articles.nom}</h2>
-            <p class="game-category">{articles.category}</p>
-            <p class="game-license">{articles.license}</p>
+<div style="height: 80vh">
+    {#if articles}
+        <div class="container">
+            <div class="game-info">
+                <img
+                    src={articles.image}
+                    alt={articles.nom}
+                    class="game-image"
+                />
+                <div class="details-box">
+                    <h2>{articles.nom}</h2>
+                    <p class="game-category">Catégorie: {articles.category}</p>
+                    <p class="game-license">Licence: {articles.license}</p>
+                    <div class="price">
+                        Prix: {articles.prix} €
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div class="price">
-        Prix: {articles.prix} €
-    </div>
-{/if}
+    {/if}
+</div>
 
 <style>
+    .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        margin-bottom: 100px;
+    }
+
     .game-info {
         display: flex;
         margin-bottom: 20px;
         align-items: center;
-        width: 80%;
-        margin: 0 auto;
+        margin-top: 20px;
     }
 
     .game-image {
@@ -57,8 +70,12 @@
         margin-right: 20px;
     }
 
-    .game-details {
+    .details-box {
         flex: 1;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border-radius: 8px;
     }
 
     h2 {
@@ -66,13 +83,10 @@
     }
 
     .game-category,
-    .game-license {
+    .game-license,
+    .price {
         margin-top: 5px;
         font-weight: bold;
-    }
-    .price {
-        font-weight: bold;
-        margin-top: 20px;
-        text-align: center;
+        color: white;
     }
 </style>

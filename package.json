@@ -6,7 +6,8 @@
   "scripts": {
     "client": "npm run dev --prefix client",
     "server": "nodemon server.js --ignore 'client/'",
-    "dev": "concurrently \"npm run server\" \"npm run client\" "
+    "dev": "concurrently \"npm run server\" \"npm run client\" ",
+    "test": "cypress open"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +32,7 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/node": "^20.12.7",
+    "cypress": "^13.7.3",
     "nodemon": "^3.1.0",
     "typescript": "^5.4.5"
   }

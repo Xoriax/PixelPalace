@@ -7,7 +7,7 @@
 
 <style>
     .site-footer {
-        background-color: rgba(0, 0, 0, 0.7); 
+        background-color: rgba(0, 0, 0, 0.7);
         color: white;
         padding: 20px;
         text-align: center;
