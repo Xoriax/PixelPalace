@@ -90,6 +90,9 @@
         transition: 0.3s;
         position: relative;
     }
+    .card-container  {
+        border-radius: 100%;
+    }
 
     .product-header {
         margin: auto;
