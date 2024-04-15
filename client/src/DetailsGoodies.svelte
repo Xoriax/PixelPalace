@@ -40,11 +40,10 @@
                     <h2>{articles.nom}</h2>
                     <p class="game-category">Catégorie: {articles.category}</p>
                     <p class="game-license">Licence: {articles.license}</p>
+                    <div class="price">
+                        Prix: {articles.prix} €
+                    </div>
                 </div>
-            </div>
-
-            <div class="price">
-                Prix: {articles.prix} €
             </div>
         </div>
     {/if}
