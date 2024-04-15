@@ -126,7 +126,6 @@
         padding: 10px 20px;
         cursor: pointer;
         font-family: "Pixelify Sans", Arial, Helvetica, sans-serif;
-        width: 100%;
     }
 
     .connect-btn:hover {

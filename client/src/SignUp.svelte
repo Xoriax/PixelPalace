@@ -43,7 +43,7 @@
     }
 </script>
 
-<div class="box" style="height: 80vh;">
+<div class="box" style="height: 90vh;">
     <h1 id="title">Sign Up</h1>
 
     {#if error}
