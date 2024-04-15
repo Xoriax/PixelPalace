@@ -21,7 +21,7 @@
     }
 </script>
 
-<h1 class="section-title">ACTION</h1>
+<h1 class="section-title" id="title">ACTION</h1>
 <div id="main-container">
     {#each articles as article, index}
         <div class="card-container">
@@ -47,6 +47,17 @@
 </div>
 
 <style>
+    #title {
+        margin: auto;
+        padding: 1.1rem;
+        font-size: 1.25rem;
+        text-align: center;
+        text-transform: uppercase;
+        color: rgb(245, 233, 0);
+        background-color: #3d3d3d;
+        font-family: "Pixelify Sans", Arial, Helvetica, sans-serif;
+    }
+
     #main-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));

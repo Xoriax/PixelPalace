@@ -21,7 +21,7 @@
     }
 </script>
 
-<h1 class="section-title">Tout Nos Jeux</h1>
+<h1 class="section-title" id="title">Tout Nos Jeux</h1>
 <div id="main-container">
     {#each articles as article, index}
         <div class="card-container">
@@ -61,6 +61,17 @@
         margin: 0 auto;
         transition: 0.3s;
         position: relative;
+    }
+
+    #title {
+        margin: auto;
+        padding: 1.1rem;
+        font-size: 1.25rem;
+        text-align: center;
+        text-transform: uppercase;
+        color: rgb(245, 233, 0);
+        background-color: #3d3d3d;
+        font-family: "Pixelify Sans", Arial, Helvetica, sans-serif;
     }
 
     .product-header {

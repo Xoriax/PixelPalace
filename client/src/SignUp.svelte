@@ -133,16 +133,6 @@
         margin-top: 20px;
     }
 
-    .connect-btn {
-        background-color: rgb(62, 62, 62);
-        color: rgb(251, 193, 3);
-        border: none;
-        border-radius: 5px;
-        padding: 10px 20px;
-        cursor: pointer;
-        font-family: "Pixelify Sans", Arial, Helvetica, sans-serif;
-    }
-
     .connect-btn:hover {
         color: rgb(62, 62, 62);
         background-color: rgb(251, 193, 3);
