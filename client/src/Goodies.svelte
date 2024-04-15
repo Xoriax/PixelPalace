@@ -65,12 +65,15 @@
 
     .product-header {
         margin: auto;
-        padding: 1.5rem;
-        font-size: 0.6rem;
+        padding: 1.1rem;
+        font-size: 1.25rem;
         text-align: center;
         text-transform: uppercase;
-        color: white;
-        background-color: #fc0d1b;
+        color: rgb(245, 233, 0);
+        background-color: #3d3d3d;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+        font-family: "Pixelify Sans", Arial, Helvetica, sans-serif;
     }
 
     #banner-image {
@@ -79,7 +82,6 @@
         object-fit: cover;
         margin-bottom: 0%;
     }
-
 
     .section-title {
         text-align: center;
@@ -100,15 +102,16 @@
         font-size: 1rem;
         text-align: center;
         text-transform: uppercase;
-        color: black;
-        background-color: #fc0d1b;
+        color: rgb(250, 217, 0);
+        background: #343434;
         cursor: pointer;
-        border: solid #fc0d1b 2px;
+        border: solid rgb(54, 54, 54) 2px;
+        font-family: "Pixelify Sans", Arial, Helvetica, sans-serif;
     }
 
     .shop-now-btn:hover {
-        color: black;
-        background: white;
-        border: solid #fc0d1b 2px;
-    }
+        color: rgb(65, 65, 65);
+        background: rgb(255, 225, 0);
+        border: solid #4d4d4d 2px;
+    
 </style>

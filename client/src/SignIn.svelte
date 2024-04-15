@@ -83,11 +83,11 @@
 </div>
 
 <style>
-    #title{
-        font-family: 'Pixelify Sans', Arial, Helvetica, sans-serif;
+    #title {
+        font-family: "Pixelify Sans", Arial, Helvetica, sans-serif;
     }
-    #etiq{
-        font-family: 'Pixelify Sans', Arial, Helvetica, sans-serif;
+    #etiq {
+        font-family: "Pixelify Sans", Arial, Helvetica, sans-serif;
     }
     .box {
         background: rgba(0, 0, 0, 0.5);
@@ -99,7 +99,7 @@
     }
 
     .champ {
-        font-family: 'Pixelify Sans', Arial, Helvetica, sans-serif;
+        font-family: "Pixelify Sans", Arial, Helvetica, sans-serif;
         margin-bottom: 5%;
         height: 10%;
         background-color: grey;
@@ -125,7 +125,7 @@
         border-radius: 5px;
         padding: 10px 20px;
         cursor: pointer;
-        font-family: 'Pixelify Sans', Arial, Helvetica, sans-serif;
+        font-family: "Pixelify Sans", Arial, Helvetica, sans-serif;
     }
 
     .connect-btn:hover {
