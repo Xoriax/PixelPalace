@@ -46,25 +46,90 @@
     }
 </script>
 
-<h1>Sign In</h1>
+<div class="box" style="height: 80vh;">
+    <h1 id="title">Sign In</h1>
 
-{#if error}
-    <p style="color: red;">{error}</p>
-{/if}
+    {#if error}
+        <p style="color: red;">{error}</p>
+    {/if}
 
-<form on:submit|preventDefault={handleLogin}>
-    <label for="username">Username:</label>
-    <input type="text" id="username" bind:value={username} required />
+    <form on:submit|preventDefault={handleLogin} id="conx">
+        <label for="username" id="etiq">Username:</label>
+        <input
+            class="champ"
+            type="text"
+            id="username"
+            bind:value={username}
+            required
+        />
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" bind:value={password} required />
+        <label for="password" id="etiq">Password:</label>
+        <input
+            class="champ"
+            type="password"
+            id="password"
+            bind:value={password}
+            required
+        />
 
-    <button type="submit">Login</button>
-</form>
+        <button class="connect-btn" type="submit">LOGIN</button>
+    </form>
 
-<button class="nav-link" on:click={goToSIGNUP}
-    >VOUS N'AVEZ PAS DE COMPTE ?</button
->
+    <div class="inscr-container">
+        <button class="connect-btn" id="inscr" on:click={goToSIGNUP}
+            >VOUS N'AVEZ PAS DE COMPTE ?</button
+        >
+    </div>
+</div>
 
 <style>
+    #title{
+        font-family: 'Pixelify Sans', Arial, Helvetica, sans-serif;
+    }
+    #etiq{
+        font-family: 'Pixelify Sans', Arial, Helvetica, sans-serif;
+    }
+    .box {
+        background: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        color: aliceblue;
+        margin: auto;
+    }
+
+    .champ {
+        font-family: 'Pixelify Sans', Arial, Helvetica, sans-serif;
+        margin-bottom: 5%;
+        height: 10%;
+        background-color: grey;
+        color: rgb(251, 193, 3);
+        width: 100%;
+        box-sizing: border-box;
+        padding: 5px;
+    }
+
+    #conx {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .inscr-container {
+        margin-top: 20px;
+    }
+
+    .connect-btn {
+        background-color: rgb(62, 62, 62);
+        color: rgb(251, 193, 3);
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-family: 'Pixelify Sans', Arial, Helvetica, sans-serif;
+    }
+
+    .connect-btn:hover {
+        color: rgb(62, 62, 62);
+        background-color: rgb(251, 193, 3);
+    }
 </style>

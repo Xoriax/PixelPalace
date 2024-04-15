@@ -17,9 +17,10 @@
 
 <div id="explore">
     <div id="all-collection-box">
-        <h1 id="collection-title">PIXEL PALACE</h1>
+        <h1 id="collection-title">Pixel Palace</h1>
     </div>
     <h4 id="sub-title">A power of gamer will change the world</h4>
+    
 
     <h2 class="section-title">D'autres envies ?</h2>
     <div id="main-container">
@@ -99,8 +100,9 @@
         text-transform: uppercase;
         color: rgb(245, 233, 0);
         background-color: #3d3d3d;
-        border-top-left-radius: 20%;
-        border-top-right-radius: 20%; 
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%; 
+        font-family: 'Pixelify Sans', Arial, Helvetica, sans-serif;
     }
 
     #banner-image {
@@ -120,6 +122,7 @@
         background: #343434;
         font-weight: bold;
         border: solid rgb(54, 54, 54) 2px;
+        font-family: 'Pixelify Sans', Arial, Helvetica, sans-serif;
     }
 
     .shop-now-btn:hover {
@@ -132,12 +135,12 @@
         margin-bottom: 20px;
         color: #ffffff;
         font-size: 2rem;
-        text-decoration: underline;
+        font-family: 'Pixelify Sans', Arial, Helvetica, sans-serif;
     }
 
     #all-collection-box {
         position: relative;
-        height: 90vh;
+        height: 50vh;
         width: 100%;
         overflow: hidden;
     }
@@ -149,26 +152,28 @@
         transform: translate(-50%, -50%);
         z-index: 2;
         color: rgb(255, 255, 255);
-        font-size: 3rem;
+        font-size: 4.5rem;
         text-align: center;
         text-transform: uppercase;
         -webkit-text-stroke-width: 2px;
-        text-decoration: underline;
         letter-spacing: 0.1em;
+        font-family: 'Pixelify Sans', Arial, Helvetica, sans-serif;
     }
 
     #sub-title {
         position: absolute;
-        top: 30%;
+        font-family: 'Pixelify Sans', Arial, Helvetica, sans-serif;
+        margin-top: 5%;
+        top: 40%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 2;
-        color: rgb(255, 255, 255);
         position: absolute;
         top: 40%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 2;
-        color: rgb(255, 255, 255);
+        color: rgb(255, 204, 0);
+        font-size: larger;
     }
 </style>
