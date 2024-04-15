@@ -23,7 +23,7 @@
     }
 </script>
 
-<h1 class="section-title">Decouvrez nos goodies !</h1>
+<h1 class="section-title">GOD OF WAR</h1>
 <div id="main-container">
     {#each articles as article, index}
         <div class="card-container">
@@ -67,12 +67,15 @@
 
     .product-header {
         margin: auto;
-        padding: 1.5rem;
-        font-size: 0.6rem;
+        padding: 1.1rem;
+        font-size: 1.25rem;
         text-align: center;
         text-transform: uppercase;
-        color: white;
-        background-color: #fc0d1b;
+        color: rgb(245, 233, 0);
+        background-color: #3d3d3d;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+        font-family: "Pixelify Sans", Arial, Helvetica, sans-serif;
     }
 
     #banner-image {
@@ -85,7 +88,7 @@
     .section-title {
         text-align: center;
         margin-bottom: 20px;
-        color: #333;
+        color: #ffffff;
         font-size: 2rem;
         text-decoration: underline;
     }
@@ -101,15 +104,16 @@
         font-size: 1rem;
         text-align: center;
         text-transform: uppercase;
-        color: black;
-        background-color: #fc0d1b;
+        color: rgb(250, 217, 0);
+        background: #343434;
         cursor: pointer;
-        border: solid #fc0d1b 2px;
+        border: solid rgb(54, 54, 54) 2px;
+        font-family: "Pixelify Sans", Arial, Helvetica, sans-serif;
     }
 
     .shop-now-btn:hover {
-        color: black;
-        background: white;
-        border: solid #fc0d1b 2px;
+        color: rgb(65, 65, 65);
+        background: rgb(255, 225, 0);
+        border: solid #4d4d4d 2px;
     }
 </style>

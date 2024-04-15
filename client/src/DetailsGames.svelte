@@ -28,29 +28,36 @@
 </script>
 
 {#if articles}
-    <div class="trailer">
-        <iframe
-            width="100%"
-            height="500"
-            src={articles.trailer}
-            frameborder="0"
-            allowfullscreen
-            title="Game Trailer"
-        ></iframe>
-    </div>
+    <div class="container">
+        <div class="trailer">
+            <iframe
+                width="100%"
+                height="300"
+                src={articles.trailer}
+                frameborder="0"
+                allowfullscreen
+                title="Game Trailer"
+            ></iframe>
+        </div>
 
-    <div class="game-info">
-        <img src={articles.image} alt={articles.nom} class="game-image" />
-        <h2>{articles.nom}</h2>
-        <p class="game-description">{articles.description}</p>
-    </div>
-
-    <div class="price">
-        Prix: {articles.prix}
+        <div class="game-info">
+            <img src={articles.image} alt={articles.nom} class="game-image" />
+            <div class="details-box">
+                <h2>{articles.nom}</h2>
+                <p>{articles.description}</p>
+                <div class="price">Prix: {articles.prix}</div>
+            </div>
+        </div>
     </div>
 {/if}
 
 <style>
+    .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+    }
+
     .trailer {
         margin-bottom: 20px;
     }
@@ -71,8 +78,12 @@
         margin-right: 20px;
     }
 
-    .game-description {
-        width: 50%;
+    .details-box {
+        flex: 1;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border-radius: 8px;
     }
 
     .price {

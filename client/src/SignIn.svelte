@@ -91,7 +91,7 @@
     }
     .box {
         background: rgba(0, 0, 0, 0.5);
-        width: 100%;
+        width: 201.5vh;
         padding: 20px;
         text-align: center;
         color: aliceblue;
@@ -126,6 +126,7 @@
         padding: 10px 20px;
         cursor: pointer;
         font-family: "Pixelify Sans", Arial, Helvetica, sans-serif;
+        width: 100%;
     }
 
     .connect-btn:hover {

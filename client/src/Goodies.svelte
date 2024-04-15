@@ -86,7 +86,7 @@
     .section-title {
         text-align: center;
         margin-bottom: 20px;
-        color: #333;
+        color: #ffffff;
         font-size: 2rem;
         text-decoration: underline;
     }

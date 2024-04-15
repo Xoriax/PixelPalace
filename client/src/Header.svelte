@@ -65,7 +65,7 @@
     .sess {
         display: flex;
         justify-content: flex-end;
-        width: 1000px;
+        width: 100vh;
     }
     #session {
         font-family: "Pixelify Sans", Arial, Helvetica, sans-serif;
@@ -116,5 +116,6 @@
     .nav-link:hover {
         cursor: pointer;
         color: #ffb300;
+        text-decoration: underline;
     }
 </style>
